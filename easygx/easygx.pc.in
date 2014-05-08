@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: easygx
+Description: Easy GUI With XML
+Version: @VERSION@
+Requires: 
+Libs: -L${libdir} -leasygx
+Cflags: -I${includedir}
+

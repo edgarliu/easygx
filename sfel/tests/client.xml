@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!-- 原则：Client端显示静态框架; Server端填补动态内容 -->
+<sfel lang="zh_CN">
+	<desktop id="desktop_Desktop1" server="127.0.0.1:8080" mainwnd="window_Information"  currentwnd="" bgcolor="#00ff0000" bgimage="backgrand.jpg" >
+		first data
+		<global id="global_ProtSetZone" data_type="uint32" />
+		second data
+		<welcome id="welcome_Desktop1_Welcome" name="Welcome" desc="欢迎进入......" bgcolor="#00ff0000" bgimage="backgrand.jpg" />
+
+		<!--URL: sftp://127.0.0.1/content_infownd_loop_show?path_type=fixed&trans_type=longconn  -->
+		<window id="window_Information" level="notice" name="LoopInformation" desc="循环显示窗口" request="content_information_loop_show" trans_type="longconn">
+			<title height="40">
+			</title>
+			<view>
+			</view>
+			<status height="40">
+			</status>
+		</window>
+		third data
+		<script lang="text/lua" entry="lua_main" style="ii>is" >
+function lua_main(x,y)
+	return x^y,'hello liuxq gybvhgyu'
+end</script>
+	</desktop>
+</sfel>

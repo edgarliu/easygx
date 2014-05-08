@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="gb2312"?>
+<sfel>
+	<desktop id="desktop" lang="ZH_CN" width="640" height="480" firstwnd="window_main" >
+		<window id="window_main" type="mainwnd" name="主动上报的窗口">
+			<title id="title_main" name="告警" />
+			<view id="view_main" name="视图一" >
+			<label id="label_main1" name="注意：右键表示退出当前窗口" x="20" y="30" width="200" height="20"/>
+			<label id="label_main1" name="注意：EasyGX支持多View机制，PgDn和PgUp键用于切换View" x="20" y="60" width="300" height="60"/>
+			<button id="button_main1" name="窗口1" x="35" y="200" width="70" height="20" jump="window_test1" />
+			<button id="button_main2" name="窗口2" x="35" y="240" width="70" height="20" jump="window_test2" />
+			</view>
+			<status/>
+		</window>
+		<window id="window_test1" view_show="stackaaa" >
+			<title name="测试界面" />
+			<view id="view_test1" name="测试视图一" >
+				<label id="label_test1" name="测试标签1" x="20" y="100" width="100" height="20"/>
+				<button id="button_test11" name="视图2" x="155" y="100" width="70" height="20" jump="view_test2" />
+				<button id="button_test12" name="视图3" x="155" y="150" width="70" height="20" jump="view_test3" />
+			</view>
+			<view id="view_test2" name="测试视图二" >
+				<label id="label_test21" name="测试标签2" x="20" y="60" width="100" height="20"/>
+				<checkbox id="checkbox_test21" name="测试复选" x="20" y="100" width="100" height="20"/>
+				<groupbox id="groupbox_test21" name="测试组1" x="20" y="120" width="100" height="200" >
+					<radiobutton id="radiobutton_test211" name="测试单选框1" x="20" y="140" width="100" height="20"/>
+					<radiobutton id="radiobutton_test212" name="测试单选框2" x="20" y="170" width="100" height="20"/>
+				</groupbox>
+				<groupbox id="groupbox_test22" name="测试组2" x="220" y="120" width="100" height="200" >
+					<radiobutton id="radiobutton_test221" name="测试单选框1" x="220" y="140" width="100" height="20"/>
+					<radiobutton id="radiobutton_test222" name="测试单选框2" x="220" y="170" width="100" height="20"/>
+				</groupbox>
+			</view>
+			<view id="view_test3" name="测试视图三" >
+				<label id="label_test31" name="测试标签3" x="20" y="100" width="100" height="30"/>
+				<edit id="edit_test31" name="标签3" x="20" y="160" width="100" height="30"/>
+				<button id="button_test31" name="传送" x="20" y="200" width="60" height="30" data_src="edit_test31" data_dest="label_test31" />
+			</view>
+			<status  height="20" />
+		</window>
+		<window id="window_test2" >
+			<title name="测试界面2222222" />
+			<label id="label_test2" name="测试标签fef" x="20" y="130" width="100" height="20"/>
+			<status  height="20" />
+		</window>
+	</desktop>
+</sfel>

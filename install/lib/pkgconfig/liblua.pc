@@ -1,0 +1,11 @@
+prefix=/e/A_Work/easygx/sfel/../install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: lua
+Description: Lua Library
+Version: 5.2
+Requires: 
+Libs: -L${libdir} -llua
+Cflags: -I${includedir}

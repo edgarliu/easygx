@@ -1,0 +1,12 @@
+prefix=/e/A_Work/easygx/easygx/../install
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: easygx
+Description: Easy GUI With XML
+Version: 0.3
+Requires: 
+Libs: -L${libdir} -leasygx
+Cflags: -I${includedir}
+

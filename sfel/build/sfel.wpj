@@ -1,0 +1,1432 @@
+Document file - DO NOT EDIT
+
+<BEGIN> BUILD_PPC603diab_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_AR
+dar
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_ARCHIVE
+$(PRJ_DIR)/PPC603diab/sfel.a
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_AS
+dcc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CC
+dcc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CC_ARCH_SPEC
+-tPPC603FH:vxworks55
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CFLAGS
+-tPPC603FH:vxworks55 \
+	-W:c:,-Xmismatch-warning=2 \
+	-ew1554,1551,1552,1086,1047,1547 \
+	-Xclib-optim-off \
+	-Xansi \
+	-Xstrings-in-text=0 \
+	-Wa,-Xsemi-is-newline \
+	-ei1516,1643,1604 \
+	-Xlocal-data-area-static-only \
+	-Xsize-opt \
+	-I. \
+	-I$(WIND_BASE)/target/h/ \
+	-I$(PRJ_DIR)/.. \
+	-I$(PRJ_DIR)/../include \
+	-I$(PRJ_DIR)/../rapidxml \
+	-I$(PRJ_DIR)/../../sfpr/include \
+	-DCPU=PPC603 \
+	-DTOOL_FAMILY=diab \
+	-DTOOL=diab \
+	-DVXWORKS
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CFLAGS_AS
+-g \
+	-tPPC603FH:vxworks55 \
+	-W:c:,-Xmismatch-warning=2 \
+	-ew1554,1551,1552,1086,1047,1547 \
+	-Xclib-optim-off \
+	-Xansi \
+	-Xstrings-in-text=0 \
+	-Wa,-Xsemi-is-newline \
+	-ei1516,1643,1604 \
+	-Xlocal-data-area-static-only \
+	-Xsize-opt \
+	-Xpreprocess-assembly \
+	-c \
+	-I. \
+	-I$(WIND_BASE)/target/h/ \
+	-DCPU=PPC603 \
+	-DTOOL_FAMILY=diab \
+	-DTOOL=diab
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CPP
+dcc -E -Xpreprocessor-lineno-off
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_HEX_FLAGS
+
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LD
+dld
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LDFLAGS
+-tPPC603FH:vxworks55 -X -N -Xgenerate-paddr
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LD_PARTIAL
+dld -tPPC603FH:vxworks55 -X -r
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LD_PARTIAL_FLAGS
+-tPPC603FH:vxworks55 -X -r
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_DEPEND
+-Xmake-dependency -w
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_GENERATE_DEPENDENCY_FILE
+-MD
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_LANG_C
+-xc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_UNDEFINE_MACRO
+-U
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_TOOL_FAMILY
+diab
+<END>
+
+<BEGIN> BUILD_PPC603diab_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} \
+	{$(WIND_BASE)/target/src/} \
+	{$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_PPC603diab_TC
+::tc_PPC603diab
+<END>
+
+<BEGIN> BUILD_RULE_archive
+
+<END>
+
+<BEGIN> BUILD_RULE_objects
+
+<END>
+
+<BEGIN> BUILD_RULE_sfel.out
+
+<END>
+
+<BEGIN> BUILD_RULE_sfel.pl
+
+<END>
+
+<BEGIN> BUILD_RULE_sfel603.out
+
+<END>
+
+<BEGIN> BUILD_RULE_sfel603.pl
+
+<END>
+
+<BEGIN> BUILD__CURRENT
+PPC603diab
+<END>
+
+<BEGIN> BUILD__LIST
+PPC603diab
+<END>
+
+<BEGIN> CORE_INFO_TYPE
+::prj_vxApp
+<END>
+
+<BEGIN> CORE_INFO_VERSION
+2.2
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lapi.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lapi.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lapi.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h \
+	$(PRJ_DIR)/../lua/lundump.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lapi.c_objects
+lapi.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lapi.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lauxlib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lauxlib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lauxlib.c_objects
+lauxlib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lauxlib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbaselib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbaselib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbaselib.c_objects
+lbaselib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbaselib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbitlib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbitlib.c_dependencies
+$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbitlib.c_objects
+lbitlib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lbitlib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcode.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcode.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lcode.h \
+	$(PRJ_DIR)/../lua/llex.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lopcodes.h \
+	$(PRJ_DIR)/../lua/lparser.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcode.c_objects
+lcode.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcode.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcorolib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcorolib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcorolib.c_objects
+lcorolib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lcorolib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lctype.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lctype.c_dependencies
+$(PRJ_DIR)/../lua/lctype.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/llimits.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lctype.c_objects
+lctype.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lctype.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldblib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldblib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldblib.c_objects
+ldblib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldblib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldebug.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldebug.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lapi.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lcode.h \
+	$(PRJ_DIR)/../lua/llex.h \
+	$(PRJ_DIR)/../lua/lopcodes.h \
+	$(PRJ_DIR)/../lua/lparser.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/ltable.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldebug.c_objects
+ldebug.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldebug.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldo.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldo.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lapi.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lopcodes.h \
+	$(PRJ_DIR)/../lua/lparser.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h \
+	$(PRJ_DIR)/../lua/lundump.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldo.c_objects
+ldo.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldo.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldump.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldump.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lundump.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldump.c_objects
+ldump.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ldump.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lfunc.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lfunc.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lfunc.c_objects
+lfunc.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lfunc.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lgc.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lgc.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lgc.c_objects
+lgc.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lgc.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/linit.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/linit.c_dependencies
+$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lualib.h \
+	$(PRJ_DIR)/../lua/lauxlib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/linit.c_objects
+linit.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/linit.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/liolib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/liolib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/liolib.c_objects
+liolib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/liolib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/llex.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/llex.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lctype.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/llex.h \
+	$(PRJ_DIR)/../lua/lparser.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/ltable.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/llex.c_objects
+llex.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/llex.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmathlib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmathlib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmathlib.c_objects
+lmathlib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmathlib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmem.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmem.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lgc.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmem.c_objects
+lmem.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lmem.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loadlib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loadlib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loadlib.c_objects
+loadlib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loadlib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lobject.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lobject.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lctype.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lobject.c_objects
+lobject.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lobject.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lopcodes.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lopcodes.c_dependencies
+$(PRJ_DIR)/../lua/lopcodes.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lopcodes.c_objects
+lopcodes.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lopcodes.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loslib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loslib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loslib.c_objects
+loslib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/loslib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lparser.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lparser.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lcode.h \
+	$(PRJ_DIR)/../lua/llex.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lopcodes.h \
+	$(PRJ_DIR)/../lua/lparser.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/ltable.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lparser.c_objects
+lparser.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lparser.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstate.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstate.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lapi.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/llex.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstate.c_objects
+lstate.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstate.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstring.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstring.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstring.c_objects
+lstring.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstring.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstrlib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstrlib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstrlib.c_objects
+lstrlib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lstrlib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltable.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltable.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltable.c_objects
+ltable.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltable.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltablib.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltablib.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltablib.c_objects
+ltablib.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltablib.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltm.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltm.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/ltable.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltm.c_objects
+ltm.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/ltm.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lua.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lua.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lua.c_objects
+lua.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lua.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/luac.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/luac.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lundump.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lopcodes.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/luac.c_objects
+luac.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/luac.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lundump.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lundump.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lundump.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lundump.c_objects
+lundump.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lundump.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lvm.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lvm.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/ldebug.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/ldo.h \
+	$(PRJ_DIR)/../lua/lfunc.h \
+	$(PRJ_DIR)/../lua/lgc.h \
+	$(PRJ_DIR)/../lua/lopcodes.h \
+	$(PRJ_DIR)/../lua/lstring.h \
+	$(PRJ_DIR)/../lua/ltable.h \
+	$(PRJ_DIR)/../lua/lvm.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lvm.c_objects
+lvm.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lvm.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lzio.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lzio.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/llimits.h \
+	$(PRJ_DIR)/../lua/lmem.h \
+	$(PRJ_DIR)/../lua/lstate.h \
+	$(PRJ_DIR)/../lua/lobject.h \
+	$(PRJ_DIR)/../lua/ltm.h \
+	$(PRJ_DIR)/../lua/lzio.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lzio.c_objects
+lzio.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../lua/lzio.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/rapidxml.hpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/rapidxml_iterators.hpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/rapidxml_print.hpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/rapidxml_utils.hpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/sfel_portable.cpp_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/sfel_portable.cpp_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/cpp/iostream \
+	$(WIND_BASE)/host/diab/include/cpp/istream \
+	$(WIND_BASE)/host/diab/include/cpp/ostream \
+	$(WIND_BASE)/host/diab/include/cpp/ios \
+	$(WIND_BASE)/host/diab/include/cpp/xlocnum \
+	$(WIND_BASE)/host/diab/include/cpp/cerrno \
+	$(WIND_BASE)/host/diab/include/cpp/yvals.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/cpp/climits \
+	$(WIND_BASE)/host/diab/include/cpp/cstdio \
+	$(WIND_BASE)/host/diab/include/cpp/cstdlib \
+	$(WIND_BASE)/host/diab/include/cpp/streambuf \
+	$(WIND_BASE)/host/diab/include/cpp/xiosbase \
+	$(WIND_BASE)/host/diab/include/cpp/xlocale \
+	$(WIND_BASE)/host/diab/include/cpp/cstring \
+	$(WIND_BASE)/host/diab/include/cpp/stdexcept \
+	$(WIND_BASE)/host/diab/include/cpp/exception \
+	$(WIND_BASE)/host/diab/include/cpp/xstddef \
+	$(WIND_BASE)/host/diab/include/cpp/cstddef \
+	$(WIND_BASE)/host/diab/include/cpp/xstring \
+	$(WIND_BASE)/host/diab/include/cpp/xmemory \
+	$(WIND_BASE)/host/diab/include/cpp/new \
+	$(WIND_BASE)/host/diab/include/cpp/xutility \
+	$(WIND_BASE)/host/diab/include/cpp/utility \
+	$(WIND_BASE)/host/diab/include/cpp/iosfwd \
+	$(WIND_BASE)/host/diab/include/cpp/cwchar \
+	$(WIND_BASE)/host/diab/include/diab/wchar.h \
+	$(WIND_BASE)/host/diab/include/cpp/typeinfo \
+	$(WIND_BASE)/host/diab/include/cpp/xlocinfo \
+	$(WIND_BASE)/host/diab/include/cpp/cctype \
+	$(WIND_BASE)/host/diab/include/cpp/clocale \
+	$(WIND_BASE)/host/diab/include/cpp/ctime \
+	$(WIND_BASE)/host/diab/include/cpp/xtinfo.h \
+	$(PRJ_DIR)/../include/sfel_xml.h \
+	$(PRJ_DIR)/../include/sfel_global.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_global.h \
+	$(PRJ_DIR)/../rapidxml/rapidxml.hpp \
+	$(WIND_BASE)/host/diab/include/cpp/cassert \
+	$(PRJ_DIR)/../rapidxml/rapidxml_utils.hpp \
+	$(WIND_BASE)/host/diab/include/cpp/vector \
+	$(WIND_BASE)/host/diab/include/cpp/memory \
+	$(WIND_BASE)/host/diab/include/cpp/iterator \
+	$(WIND_BASE)/host/diab/include/cpp/string \
+	$(WIND_BASE)/host/diab/include/cpp/fstream \
+	$(PRJ_DIR)/../rapidxml/rapidxml_print.hpp
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/sfel_portable.cpp_objects
+sfel_portable.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../rapidxml/sfel_portable.cpp_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfel.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_hash.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_memory_pool.h \
+	$(PRJ_DIR)/../include/sfel_xml.h \
+	$(PRJ_DIR)/../include/sfel_global.h \
+	$(PRJ_DIR)/../include/sfel_ref.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel.c_objects
+sfel.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_dsfel.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_dsfel.c_dependencies
+$(PRJ_DIR)/../include/sfel_dsfel.h \
+	$(PRJ_DIR)/../include/sfel.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_hash.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_global.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_memory_pool.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfel_xml.h \
+	$(PRJ_DIR)/../include/sfel_global.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_stack.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_dsfel.c_objects
+sfel_dsfel.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_dsfel.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_inst.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_inst.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_string.h \
+	$(PRJ_DIR)/../include/sfel.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_hash.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_global.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_memory_pool.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfel_xml.h \
+	$(PRJ_DIR)/../include/sfel_global.h \
+	$(PRJ_DIR)/../include/sfel_dsfel.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_stack.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_inst.c_objects
+sfel_inst.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_inst.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_lua.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_lua.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_string.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfel.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_hash.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_memory_pool.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfel_xml.h \
+	$(PRJ_DIR)/../include/sfel_global.h \
+	$(PRJ_DIR)/../config.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/luaconf.h \
+	$(PRJ_DIR)/../lua/lauxlib.h \
+	$(PRJ_DIR)/../lua/lua.h \
+	$(PRJ_DIR)/../lua/lualib.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_lua.c_objects
+sfel_lua.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_lua.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_ref.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_ref.c_dependencies
+$(PRJ_DIR)/../include/sfel.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_hash.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_global.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_memory_pool.h \
+	$(PRJ_DIR)/../../sfpr/include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfel_xml.h \
+	$(PRJ_DIR)/../include/sfel_global.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_ref.c_objects
+sfel_ref.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../src/sfel_ref.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> PROJECT_FILES
+$(PRJ_DIR)/../src/sfel.c \
+	$(PRJ_DIR)/../src/sfel_dsfel.c \
+	$(PRJ_DIR)/../src/sfel_inst.c \
+	$(PRJ_DIR)/../rapidxml/sfel_portable.cpp \
+	$(PRJ_DIR)/../src/sfel_ref.c \
+	$(PRJ_DIR)/../src/sfel_lua.c \
+	$(PRJ_DIR)/../lua/lapi.c \
+	$(PRJ_DIR)/../lua/lauxlib.c \
+	$(PRJ_DIR)/../lua/lbaselib.c \
+	$(PRJ_DIR)/../lua/lbitlib.c \
+	$(PRJ_DIR)/../lua/lcode.c \
+	$(PRJ_DIR)/../lua/lcorolib.c \
+	$(PRJ_DIR)/../lua/lctype.c \
+	$(PRJ_DIR)/../lua/ldblib.c \
+	$(PRJ_DIR)/../lua/ldebug.c \
+	$(PRJ_DIR)/../lua/ldo.c \
+	$(PRJ_DIR)/../lua/ldump.c \
+	$(PRJ_DIR)/../lua/lfunc.c \
+	$(PRJ_DIR)/../lua/lgc.c \
+	$(PRJ_DIR)/../lua/linit.c \
+	$(PRJ_DIR)/../lua/liolib.c \
+	$(PRJ_DIR)/../lua/llex.c \
+	$(PRJ_DIR)/../lua/lmathlib.c \
+	$(PRJ_DIR)/../lua/lmem.c \
+	$(PRJ_DIR)/../lua/loadlib.c \
+	$(PRJ_DIR)/../lua/lobject.c \
+	$(PRJ_DIR)/../lua/lopcodes.c \
+	$(PRJ_DIR)/../lua/loslib.c \
+	$(PRJ_DIR)/../lua/lparser.c \
+	$(PRJ_DIR)/../lua/lstate.c \
+	$(PRJ_DIR)/../lua/lstring.c \
+	$(PRJ_DIR)/../lua/lstrlib.c \
+	$(PRJ_DIR)/../lua/ltable.c \
+	$(PRJ_DIR)/../lua/ltablib.c \
+	$(PRJ_DIR)/../lua/ltm.c \
+	$(PRJ_DIR)/../lua/lua.c \
+	$(PRJ_DIR)/../lua/luac.c \
+	$(PRJ_DIR)/../lua/lundump.c \
+	$(PRJ_DIR)/../lua/lvm.c \
+	$(PRJ_DIR)/../lua/lzio.c \
+	$(PRJ_DIR)/../rapidxml/rapidxml.hpp \
+	$(PRJ_DIR)/../rapidxml/rapidxml_iterators.hpp \
+	$(PRJ_DIR)/../rapidxml/rapidxml_print.hpp \
+	$(PRJ_DIR)/../rapidxml/rapidxml_utils.hpp
+<END>
+
+<BEGIN> userComments
+<Enter description here>
+<END>
+

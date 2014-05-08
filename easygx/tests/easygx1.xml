@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="gb2312"?>
+<sfel>
+	<desktop id="desktop" lang="ZH_CN" width="640" height="480" firstwnd="window_main" >
+		<window id="window_main" type="mainwnd" name="主动上报的窗口">
+			<title id="title_main" name="告警" />
+			<view id="view_main" name="视图一" >
+				<label id="label_main1" name="这是标签" x="20" y="30" width="100" height="20"/>
+				<button id="button_main1" name="这是按钮" x="20" y="75" width="70" height="20" jump="window_test1" />
+				<edit id="edit_test31" name="" x="20" y="110" width="100" height="30"/>
+				<checkbox id="checkbox_test21" name="复选框" x="220" y="30" width="100" height="20"/>
+				<groupbox id="groupbox_test22" name="GroupBox" x="220" y="70" width="130" height="200" >
+					<radiobutton id="radiobutton_test221" name="单选框1" x="225" y="100" width="100" height="20"/>
+					<radiobutton id="radiobutton_test222" name="单选框2" x="225" y="130" width="100" height="20"/>
+				</groupbox>
+			</view>
+			<status/>
+		</window>
+	</desktop>
+</sfel>

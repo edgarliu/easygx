@@ -1,0 +1,757 @@
+Document file - DO NOT EDIT
+
+<BEGIN> BUILD_PPC603diab_BUILDRULE
+archive
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_AR
+dar
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_ARCHIVE
+$(PRJ_DIR)/PPC603diab/sfpr.a
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_AS
+dcc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CC
+dcc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CC_ARCH_SPEC
+-tPPC603FH:vxworks55
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CFLAGS
+ \
+	-tPPC603FH:vxworks55 \
+	-W:c:,-Xmismatch-warning=2 \
+	-ew1554,1551,1552,1086,1047,1547 \
+	-Xclib-optim-off \
+	-Xansi \
+	-Xstrings-in-text=0 \
+	-Wa,-Xsemi-is-newline \
+	-ei1516,1643,1604 \
+	-Xlocal-data-area-static-only \
+	-Xsize-opt \
+	-I. \
+	-I$(WIND_BASE)/target/h/ \
+	-DCPU=PPC603 \
+	-DTOOL_FAMILY=diab \
+	-DTOOL=diab \
+	-I$(PRJ_DIR)/../include \
+	-DVXWORKS
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CFLAGS_AS
+-g \
+	-tPPC603FH:vxworks55 \
+	-W:c:,-Xmismatch-warning=2 \
+	-ew1554,1551,1552,1086,1047,1547 \
+	-Xclib-optim-off \
+	-Xansi \
+	-Xstrings-in-text=0 \
+	-Wa,-Xsemi-is-newline \
+	-ei1516,1643,1604 \
+	-Xlocal-data-area-static-only \
+	-Xsize-opt \
+	-Xpreprocess-assembly \
+	-c \
+	-I. \
+	-I$(WIND_BASE)/target/h/ \
+	-DCPU=PPC603 \
+	-DTOOL_FAMILY=diab \
+	-DTOOL=diab
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_CPP
+dcc -E -Xpreprocessor-lineno-off
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_HEX_FLAGS
+
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LD
+dld
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LDFLAGS
+-tPPC603FH:vxworks55 -X -N -Xgenerate-paddr
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LD_PARTIAL
+dld -tPPC603FH:vxworks55 -X -r
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_LD_PARTIAL_FLAGS
+-tPPC603FH:vxworks55 -X -r
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_NM
+nmppc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_DEFINE_MACRO
+-D
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_DEPEND
+-Xmake-dependency -w
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_GENERATE_DEPENDENCY_FILE
+-MD
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_INCLUDE_DIR
+-I
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_LANG_C
+-xc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_OPTION_UNDEFINE_MACRO
+-U
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_POST_BUILD_RULE
+
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_PRJ_LIBS
+
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_SIZE
+sizeppc
+<END>
+
+<BEGIN> BUILD_PPC603diab_MACRO_TOOL_FAMILY
+diab
+<END>
+
+<BEGIN> BUILD_PPC603diab_RO_DEPEND_PATH
+{$(WIND_BASE)/target/h/} \
+	{$(WIND_BASE)/target/src/} \
+	{$(WIND_BASE)/target/config/}
+<END>
+
+<BEGIN> BUILD_PPC603diab_TC
+::tc_PPC603diab
+<END>
+
+<BEGIN> BUILD_RULE_archive
+
+<END>
+
+<BEGIN> BUILD_RULE_objects
+
+<END>
+
+<BEGIN> BUILD_RULE_sfpr.out
+
+<END>
+
+<BEGIN> BUILD_RULE_sfpr.pl
+
+<END>
+
+<BEGIN> BUILD_RULE_sfpr603.out
+
+<END>
+
+<BEGIN> BUILD_RULE_sfpr603.pl
+
+<END>
+
+<BEGIN> BUILD__CURRENT
+PPC603diab
+<END>
+
+<BEGIN> BUILD__LIST
+PPC603diab
+<END>
+
+<BEGIN> CORE_INFO_TYPE
+::prj_vxApp
+<END>
+
+<BEGIN> CORE_INFO_VERSION
+2.2
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes.c_dependencies
+$(PRJ_DIR)/../crypt/aes.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes.c_objects
+aes.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_cbc.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_cbc.c_dependencies
+$(PRJ_DIR)/../crypt/aes.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_cbc.c_objects
+aes_cbc.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_cbc.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_core.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_core.c_dependencies
+$(PRJ_DIR)/../crypt/aes.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_core.c_objects
+aes_core.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/aes_core.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/des.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/des.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../crypt/crypt_misc.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/des.c_objects
+des.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/des.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/md5.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/md5.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../crypt/crypt_misc.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/md5.c_objects
+md5.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/md5.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/sfpr_crypt.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/sfpr_crypt.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../crypt/crypt_misc.h \
+	$(PRJ_DIR)/../include/sfpr_crypt.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/sfpr_crypt.c_objects
+sfpr_crypt.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../crypt/sfpr_crypt.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file/vxworks/sfpr_file.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file/vxworks/sfpr_file.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_file.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file/vxworks/sfpr_file.c_objects
+sfpr_file.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file/vxworks/sfpr_file.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file_io/vxworks/sfpr_file_io.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file_io/vxworks/sfpr_file_io.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_file_io.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file_io/vxworks/sfpr_file_io.c_objects
+sfpr_file_io.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../file_io/vxworks/sfpr_file_io.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../hash/sfpr_hash.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../hash/sfpr_hash.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../include/sfpr_hash.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_memory_pool.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../hash/sfpr_hash.c_objects
+sfpr_hash.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../hash/sfpr_hash.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../list/sfpr_list.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../list/sfpr_list.c_dependencies
+$(PRJ_DIR)/../include/sfpr_list.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../list/sfpr_list.c_objects
+sfpr_list.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../list/sfpr_list.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_cond.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_cond.c_dependencies
+$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_thread_cond.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_cond.c_objects
+sfpr_thread_cond.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_cond.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_mutex.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_mutex.c_dependencies
+$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_mutex.c_objects
+sfpr_thread_mutex.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../locks/vxworks/sfpr_thread_mutex.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../log/sfpr_log.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../log/sfpr_log.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../include/sfpr_time.h \
+	$(PRJ_DIR)/../include/sfpr_log.h \
+	$(PRJ_DIR)/../include/sfpr_thread.h \
+	$(PRJ_DIR)/../include/sfpr_thread_cond.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../log/sfpr_log.c_objects
+sfpr_log.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../log/sfpr_log.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../memory/sfpr_memory_pool.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../memory/sfpr_memory_pool.c_dependencies
+$(PRJ_DIR)/../include/sfpr_memory_pool.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../memory/sfpr_memory_pool.c_objects
+sfpr_memory_pool.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../memory/sfpr_memory_pool.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../network/sfpr_network.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../network/sfpr_network.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../include/sfpr_network.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../network/sfpr_network.c_objects
+sfpr_network.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../network/sfpr_network.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../poll/select/sfpr_select.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../poll/select/sfpr_select.c_dependencies
+$(PRJ_DIR)/../include/sfpr_poll.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_network.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../poll/select/sfpr_select.c_objects
+sfpr_select.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../poll/select/sfpr_select.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../queue/sfpr_queue.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../queue/sfpr_queue.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_queue.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread_cond.h \
+	$(PRJ_DIR)/../include/sfpr_string.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../queue/sfpr_queue.c_objects
+sfpr_queue.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../queue/sfpr_queue.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../serial/vxworks/sfpr_serial.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../serial/vxworks/sfpr_serial.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_serial.h \
+	$(PRJ_DIR)/../include/sfpr_file_io.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../serial/vxworks/sfpr_serial.c_objects
+sfpr_serial.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../serial/vxworks/sfpr_serial.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../stack/sfpr_stack.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../stack/sfpr_stack.c_dependencies
+$(PRJ_DIR)/../include/sfpr_stack.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../stack/sfpr_stack.c_objects
+sfpr_stack.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../stack/sfpr_stack.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../strings/sfpr_string.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../strings/sfpr_string.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../strings/sfpr_string.c_objects
+sfpr_string.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../strings/sfpr_string.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/sfpr_thread_pool.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/sfpr_thread_pool.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_thread_pool.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_thread.h \
+	$(PRJ_DIR)/../include/sfpr_thread_cond.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_network.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/sfpr_thread_pool.c_objects
+sfpr_thread_pool.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/sfpr_thread_pool.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/vxworks/sfpr_thread.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/vxworks/sfpr_thread.c_dependencies
+$(PRJ_DIR)/../include/sfpr_thread.h \
+	$(PRJ_DIR)/../include/sfpr_thread_cond.h \
+	$(PRJ_DIR)/../include/sfpr_thread_mutex.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/vxworks/sfpr_thread.c_objects
+sfpr_thread.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../thread/vxworks/sfpr_thread.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/sfpr_timecal.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/sfpr_timecal.c_dependencies
+$(PRJ_DIR)/../include/sfpr_time.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_timecal.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/sfpr_timecal.c_objects
+sfpr_timecal.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/sfpr_timecal.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/vxworks/sfpr_time.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/vxworks/sfpr_time.c_dependencies
+$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_time.h \
+	$(PRJ_DIR)/../include/sfpr_global.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/vxworks/sfpr_time.c_objects
+sfpr_time.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../time/vxworks/sfpr_time.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../timer/vxworks/sfpr_timer.c_dependDone
+TRUE
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../timer/vxworks/sfpr_timer.c_dependencies
+$(PRJ_DIR)/../include/sfpr_timer.h \
+	$(WIND_BASE)/host/diab/include/diab/stddef.h \
+	$(WIND_BASE)/host/diab/include/diab/xmacros.h \
+	$(WIND_BASE)/host/diab/include/diab/stdarg.h \
+	$(WIND_BASE)/host/diab/include/diab/va_list.h \
+	$(PRJ_DIR)/../include/sfpr_global.h \
+	$(PRJ_DIR)/../include/sfpr_time.h
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../timer/vxworks/sfpr_timer.c_objects
+sfpr_timer.o
+<END>
+
+<BEGIN> FILE_$(PRJ_DIR)/../timer/vxworks/sfpr_timer.c_tool
+C/C++ compiler
+<END>
+
+<BEGIN> PROJECT_FILES
+$(PRJ_DIR)/../locks/vxworks/sfpr_thread_cond.c \
+	$(PRJ_DIR)/../locks/vxworks/sfpr_thread_mutex.c \
+	$(PRJ_DIR)/../hash/sfpr_hash.c \
+	$(PRJ_DIR)/../memory/sfpr_memory_pool.c \
+	$(PRJ_DIR)/../network/sfpr_network.c \
+	$(PRJ_DIR)/../poll/select/sfpr_select.c \
+	$(PRJ_DIR)/../queue/sfpr_queue.c \
+	$(PRJ_DIR)/../strings/sfpr_string.c \
+	$(PRJ_DIR)/../thread/vxworks/sfpr_thread.c \
+	$(PRJ_DIR)/../time/vxworks/sfpr_time.c \
+	$(PRJ_DIR)/../file_io/vxworks/sfpr_file_io.c \
+	$(PRJ_DIR)/../list/sfpr_list.c \
+	$(PRJ_DIR)/../serial/vxworks/sfpr_serial.c \
+	$(PRJ_DIR)/../stack/sfpr_stack.c \
+	$(PRJ_DIR)/../thread/sfpr_thread_pool.c \
+	$(PRJ_DIR)/../timer/vxworks/sfpr_timer.c \
+	$(PRJ_DIR)/../log/sfpr_log.c \
+	$(PRJ_DIR)/../time/sfpr_timecal.c \
+	$(PRJ_DIR)/../file/vxworks/sfpr_file.c \
+	$(PRJ_DIR)/../crypt/des.c \
+	$(PRJ_DIR)/../crypt/md5.c \
+	$(PRJ_DIR)/../crypt/aes.c \
+	$(PRJ_DIR)/../crypt/aes_cbc.c \
+	$(PRJ_DIR)/../crypt/aes_core.c \
+	$(PRJ_DIR)/../crypt/sfpr_crypt.c
+<END>
+
+<BEGIN> userComments
+<Enter description here>
+<END>
+

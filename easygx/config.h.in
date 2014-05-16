@@ -21,6 +21,9 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
+/* Define to 1 if you have the `comctl32' library (-lcomctl32). */
+#undef HAVE_LIBCOMCTL32
+
 /* Define to 1 if you have the `dl' library (-ldl). */
 #undef HAVE_LIBDL
 
@@ -35,6 +38,9 @@
 
 /* Define to 1 if you have the `sfpr' library (-lsfpr). */
 #undef HAVE_LIBSFPR
+
+/* Define to 1 if you have the `shell32' library (-lshell32). */
+#undef HAVE_LIBSHELL32
 
 /* Define to 1 if you have the `ucgui' library (-lucgui). */
 #undef HAVE_LIBUCGUI

@@ -253,13 +253,6 @@ int egx_window_hide_(egx_wnd_t hwnd)
 	return 0;
 }
 
-int egx_window_close_(egx_wnd_t hwnd)
-{
-	WM_HWIN hWnd = GUIWND_TO_HWND(hwnd);
-	WM_HideWindow(hWnd);	
-	return 0;
-}
-
 int egx_window_destroy_(egx_wnd_t hwnd)
 {
 	WM_HWIN hWnd = GUIWND_TO_HWND(hwnd);

@@ -64,9 +64,11 @@ case "${with_gui}" in
 	gtk)
 	;;
 	wingdi)
-	AC_CHECK_LIB(user32,main, ,AC_MSG_ERROR([*** Unable to find Windows GDI Library with Windows support]),)
-	AC_CHECK_LIB(gdi32,main, ,AC_MSG_ERROR([*** Unable to find Windows GDI Library with Windows support]),)
-	AC_DEFINE_UNQUOTED([ENABLE_WINGDI], [1],[Support With Windows GDI])	
+	AC_CHECK_LIB(user32,main, ,AC_MSG_ERROR([*** Unable to find Windows User Library with Windows support]),)
+	AC_CHECK_LIB(gdi32,main, ,AC_MSG_ERROR([*** Unable to find Windows Gdi Library with Windows support]),)
+	AC_CHECK_LIB(comctl32,main, ,AC_MSG_ERROR([*** Unable to find Windows Comctl Library with Windows support]),)
+	AC_CHECK_LIB(shell32,main, ,AC_MSG_ERROR([*** Unable to find Windows Shell Library with Windows support]),)
+	AC_DEFINE_UNQUOTED([ENABLE_WINGDI], [1],[Support With Windows GDI])
 	AC_DEFINE_UNQUOTED([GUI_LIBARY], ["windows gdi"],[Support With GUI Library])
 	;;
 	*)

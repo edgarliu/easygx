@@ -3,7 +3,7 @@ AUTOMAKE_OPTIONS = foreign #subdir-objects
 INCLUDES = -I. -I$(top_builddir)/include `pkg-config sfpr --cflags`
 LIBS = `pkg-config sfpr --libs`
 
-LIBS +=  -luser32 -lgdi32
+LIBS +=  -luser32 -lgdi32 -lComctl32
 
 noinst_LTLIBRARIES = libgui_win32.la
 

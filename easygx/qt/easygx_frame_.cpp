@@ -70,6 +70,9 @@ egx_wnd_t egx_window_create_(char *name,egx_uint32_t style,int x,int y,int width
 int egx_window_show_(egx_wnd_t hwnd)
 {
 	CEgxWindow *gwindow = (CEgxWindow*)(hwnd);
+	if(0 == hwnd){
+		return -1;
+	}
 	gwindow->show();
 	return 0;	
 }
@@ -77,23 +80,76 @@ int egx_window_show_(egx_wnd_t hwnd)
 int egx_window_hide_(egx_wnd_t hwnd)
 {
 	CEgxWindow *gwindow = (CEgxWindow*)(hwnd);
+	if(0 == hwnd){
+		return -1;
+	}
 	gwindow->hide();
-	return 0;
-}
-
-int egx_window_close_(egx_wnd_t hwnd)
-{
-	CEgxWindow *gwindow = (CEgxWindow*)(hwnd);
-	gwindow->close();
 	return 0;
 }
 
 int egx_window_destroy_(egx_wnd_t hwnd)
 {
 	CEgxWindow *gwindow = (CEgxWindow*)(hwnd);
+	if(0 == hwnd){
+		return -1;
+	}
 	delete gwindow;
 	return 0;
 }
+
+egx_wnd_t egx_dialog_create_(char *name,egx_uint32_t style,int x,int y,int width,int height)
+{
+	CEgxDialog *dialog = new CEgxDialog(); 
+	if(!dialog){
+		return 0;
+	}
+	dialog->setModal(true);
+	dialog->setWindowTitle(QString::fromLocal8Bit(name));
+	if(x == 0 || y == 0){
+		dialog->resize(width,height);
+	}else{
+		dialog->setGeometry(x,y,width,height);
+	}
+	dialog->setObjectName("egxdialog");
+	//printf("objectName:%s\n",gwindow->objectName().toLocal8Bit().data());	
+	return HWND_TO_GUIWND(dialog);
+}
+
+int egx_dialog_show_(egx_wnd_t hwnd)
+{
+	CEgxDialog *dialog = (CEgxDialog*)(hwnd);
+	if(0 == hwnd){
+		return -1;
+	}
+	if(dialog->isModal() == true){
+		dialog->exec();
+	}else{
+		dialog->show();
+	}
+	return 0;	
+}
+
+int egx_dialog_hide_(egx_wnd_t hwnd)
+{
+	CEgxDialog *dialog = (CEgxDialog*)(hwnd);
+	if(0 == hwnd){
+		return -1;
+	}
+	dialog->finished(0);
+	dialog->hide();
+	return 0;
+}
+
+int egx_dialog_destroy_(egx_wnd_t hwnd)
+{
+	CEgxDialog *gwindow = (CEgxDialog*)(hwnd);
+	if(0 == hwnd){
+		return -1;
+	}
+	delete gwindow;
+	return 0;
+}
+
 
 egx_wnd_t egx_view_create_(egx_uint32_t style,int x,int y,int width,int height,egx_wnd_t parent)
 {
@@ -127,7 +183,7 @@ int egx_view_hide_(egx_wnd_t hwnd)
 void CEgxWindow::closeEvent(QCloseEvent * event)
 {
 	egx_window_t *window = (egx_window_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this)); //(this->frame);
-	egx_window_close(window->id);
+	egx_window_hide(window->id);
 }
 
 void CEgxWindow::paintEvent(QPaintEvent * event)
@@ -193,7 +249,6 @@ void CEgxWindow::mouseReleaseEvent(QMouseEvent *event)
 		egx_message_exec_public_msg(frame,egx_message_lbuttonup,pos,0);
     }else if(button == Qt::RightButton){
 		egx_window_hide(frame->id);
-//		egx_window_close(window->id);
 	}else if(button == Qt::MidButton){
 		egx_message_exec_public_msg(frame,egx_message_mbuttonup,pos,0);
 	}
@@ -223,6 +278,113 @@ void	CEgxWindow::wheelEvent(QWheelEvent * event)
 }
 
 void CEgxWindow::on_button_event(bool checked)
+{
+	char className[64];
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+	QObject *sender = dynamic_cast<QObject*>(QObject::sender());
+	egx_widget_t *widget = (egx_widget_t *)egx_widget_get_struct_(HWND_TO_GUIWND(sender));
+	memset(className,0,sizeof(className));
+	strncpy(className,sender->metaObject()->className(),sizeof(className) - 1);
+//	printf("on_button_event class:%s  %d\n",className,checked);
+	if(0 == strcmp(className,"QPushButton")){
+		egx_message_exec_notification(frame,egx_notification_pushbutton_click,0,widget->id);		
+	}
+	else if(0 == strcmp(className,"QCheckBox")){
+		egx_message_exec_notification(frame,egx_notification_checkbox_check,0,widget->id);		
+	}
+	else if(0 == strcmp(className,"QRadioButton")){
+		egx_message_exec_notification(frame,egx_notification_radiobutton_check,0,widget->id);		
+	}
+}
+
+
+void CEgxDialog::closeEvent(QCloseEvent * event)
+{
+	egx_dialog_t *dialog = (egx_dialog_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this)); //(this->frame);
+	egx_dialog_hide(dialog->id);
+}
+
+void CEgxDialog::paintEvent(QPaintEvent * event)
+{
+	egx_frame_t *frame = (egx_frame_t*)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+	egx_message_exec_public_msg(frame,egx_message_paint,0,0);
+}
+
+void CEgxDialog::timerEvent(QTimerEvent *event)
+{
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));//(this->frame);
+	egx_message_exec_timer(frame,event->timerId());
+}
+
+void CEgxDialog::keyPressEvent(QKeyEvent *event)
+{
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));//(this->frame);
+	egx_message_exec_public_msg(frame,egx_message_keydown,event->nativeVirtualKey(),0);
+}
+
+void CEgxDialog::keyReleaseEvent(QKeyEvent *event)
+{
+	egx_frame_t *frame = (egx_frame_t*)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+	egx_message_exec_public_msg(frame,egx_message_keyup,event->nativeVirtualKey(),0);
+}
+
+void CEgxDialog::mousePressEvent(QMouseEvent *event)
+{
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+    unsigned long button = event->button();
+    egx_uint32_t x = event->x();
+    egx_uint32_t y = event->y();
+    egx_uint32_t pos = x + (y<<16);
+	egx_widget_set_focus_(frame->object);		
+    if(button == Qt::LeftButton){
+		egx_message_exec_public_msg(frame,egx_message_lbuttondown,pos,0);
+    }else if(button == Qt::RightButton){
+	}else if(button == Qt::MidButton){
+		egx_message_exec_public_msg(frame,egx_message_mbuttondown,pos,0);
+	}	
+}
+
+void CEgxDialog::mouseReleaseEvent(QMouseEvent *event)
+{
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+    unsigned long button = event->button();
+    egx_uint32_t x = event->x();
+    egx_uint32_t y = event->y();
+    egx_uint32_t pos = x + (y<<16);
+	egx_widget_set_focus_(frame->object);
+    if(button == Qt::LeftButton){
+		egx_message_exec_public_msg(frame,egx_message_lbuttonup,pos,0);
+    }else if(button == Qt::RightButton){
+		egx_dialog_hide(frame->id);
+	}else if(button == Qt::MidButton){
+		egx_message_exec_public_msg(frame,egx_message_mbuttonup,pos,0);
+	}
+}
+
+void	CEgxDialog::mouseDoubleClickEvent(QMouseEvent * event)
+{
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+    unsigned long button = event->button();
+    egx_uint32_t x = event->x();
+    egx_uint32_t y = event->y();
+    egx_uint32_t pos = x + (y<<16);
+	egx_widget_set_focus_(frame->object);		
+    if(button == Qt::LeftButton){
+		egx_message_exec_public_msg(frame,egx_message_lbuttondbclk,pos,0);
+    }	
+}
+
+void	CEgxDialog::wheelEvent(QWheelEvent * event)
+{
+    egx_uint32_t x = event->x();
+    egx_uint32_t y = event->y();
+    egx_uint32_t pos = x + (y<<16);
+	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));
+    egx_uint32_t delta = event->delta();
+	egx_message_exec_public_msg(frame,egx_message_mousewheel,pos,delta);	
+}
+
+void CEgxDialog::on_button_event(bool checked)
 {
 	char className[64];
 	egx_frame_t *frame = (egx_frame_t *)egx_widget_get_struct_(HWND_TO_GUIWND(this));

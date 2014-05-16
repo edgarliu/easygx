@@ -9,7 +9,6 @@
 
 #include "sfpr_hash.h"
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -25,13 +24,13 @@ typedef struct easygx_s easygx_t;
 
 typedef struct egx_widget_s egx_widget_t;
 
-typedef struct egx_view_s egx_view_t;
-
 typedef struct egx_frame_s egx_frame_t;
 
 typedef struct egx_window_s egx_window_t;
 
 typedef struct egx_dialog_s egx_dialog_t;
+
+typedef struct egx_view_s egx_view_t;
 
 typedef struct egx_control_s egx_control_t;
 

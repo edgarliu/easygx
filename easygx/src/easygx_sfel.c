@@ -61,18 +61,9 @@ static int create_window(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth,
 	return 0;
 }
 
-static int create_title(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+static int create_dialog(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
 {
-	struct egx_exec_param_s *egx_param = (struct egx_exec_param_s*)param;	
-	char *name = NULL;
-	if(status == SFEL_NODE_END){
-		return 0;
-	}
-	name = sfel_xml_attr_get_value(node,"name");
-	if(name){
-		egx_frame_set_title(egx_param->curr_frame,name);
-	}
-	return 0;
+	
 }
 
 static int create_view(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
@@ -90,6 +81,20 @@ static int create_view(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, s
 //			sfel_xml_node_get_name(node),id,name);
 	egx_view_create(id,egx_view_type_general,name,egx_param->curr_window);
 	egx_param->curr_frame = id;
+	return 0;
+}
+
+static int create_title(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	struct egx_exec_param_s *egx_param = (struct egx_exec_param_s*)param;	
+	char *name = NULL;
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	name = sfel_xml_attr_get_value(node,"name");
+	if(name){
+		egx_frame_set_title(egx_param->curr_frame,name);
+	}
 	return 0;
 }
 
@@ -123,6 +128,10 @@ static int create_control(sfel_node_t *node,struct egx_exec_param_s *egx_param,s
 //	sfpr_log(easygx_log,SFPR_LOG_INFO,"easygx_sfel_create() |  node:%s  id:%s  name:%s\n",
 //			sfel_xml_node_get_name(node),id,name);
 	switch(control_type){
+		case egx_control_type_label:{
+			egx_label_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
 		case egx_control_type_button:{
 			egx_pushbutton_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
 			char *jump = sfel_xml_attr_get_value(node,"jump");
@@ -151,24 +160,56 @@ static int create_control(sfel_node_t *node,struct egx_exec_param_s *egx_param,s
 			egx_radiobutton_create(id,0,name,style,x,y,width,height,egx_param->curr_frame);
 			break;
 		}
-		case egx_control_type_label:{
-			egx_label_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
-			break;
-		}
 		case egx_control_type_edit:{
 			egx_edit_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
 			break;
 		}
+		case egx_control_type_multiedit:{
+			egx_multiedit_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_listbox:{
+			egx_listbox_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_combobox:{
+			egx_combobox_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_tree:{
+			egx_tree_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_list:{
+			egx_list_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_table:{
+			egx_table_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_textarea:{
+			egx_textarea_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_image:{
+			egx_image_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_progressbar:{
+			egx_progressbar_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_datetime:{
+			egx_datetime_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
+		case egx_control_type_ipaddr:{
+			egx_ipaddr_create(id,0,name,0,x,y,width,height,egx_param->curr_frame);
+			break;
+		}
 	}
 	return 0;
-}
-
-static int create_label(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
-{
-	if(status == SFEL_NODE_END){
-		return 0;
-	}
-	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_label);
 }
 
 static int create_button(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
@@ -211,18 +252,118 @@ static int create_edit(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, s
 	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_edit);
 }
 
+static int create_multiedit(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_multiedit);
+}
+
+static int create_listbox(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_listbox);
+}
+
+static int create_combox(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_combobox);
+}
+
+static int create_label(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_label);
+}
+
+static int create_textarea(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_textarea);
+}
+
+static int create_list(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_list);
+}
+
+static int create_table(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_table);
+}
+
+static int create_progressbar(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_progressbar);
+}
+
+static int create_datetime(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_datetime);
+}
+
+static int create_ipaddr(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_ipaddr);
+}
+
+static int create_image(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth, sfpr_int_t status)
+{
+	if(status == SFEL_NODE_END){
+		return 0;
+	}
+	return create_control(node,(struct egx_exec_param_s*)param,depth,egx_control_type_image);
+}
+
 static sfel_action_t easygx_create_action[] = {
 	{"desktop", 	create_desktop},	
 	{"window", 	create_window},
-	{"title", 	    create_title},
+	{"dialog", 	    create_dialog},
 	{"view", 	    create_view},
+	{"title", 	    create_title},
 	{"status", 	create_status},
-	{"label", 		create_label},	
 	{"button", 	create_button},
 	{"checkbox", 	create_checkbox},
 	{"groupbox", 	create_groupbox},
 	{"radiobutton", 	create_radiobutton},
 	{"edit", 	    create_edit},
+	{"multiedit", 	    create_multiedit},
+	{"listbox", 	    create_listbox},
+	{"combox", 	    create_combox},
+	{"label", 		create_label},	
+	{"textarea", 	    create_textarea},
+	{"list", 	    create_list},
+	{"table", 	    create_table},
+	{"progressbar", 	    create_progressbar},
+	{"datetime", 	    create_datetime},
+	{"ipaddr", 	    create_ipaddr},
+	{"image", 	    create_image},
+//	{"", 	    create_},
 	{NULL,NULL}	
 };
 
@@ -246,8 +387,6 @@ static int destroy_window(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth
 
 		return 0;
 	}
-//	sfpr_log(easygx_log,SFPR_LOG_INFO,"easygx_sfel_destroy() |  node:%s  id:%s  name:%s\n",
-//			sfel_xml_node_get_name(node),sfel_xml_attr_get_value(node,"id"),sfel_xml_attr_get_value(node,"name"));
 
 	return 0;
 }
@@ -259,8 +398,6 @@ static int destroy_label(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth,
 
 		return 0;
 	}
-//	sfpr_log(easygx_log,SFPR_LOG_INFO,"easygx_sfel_destroy() |  node:%s  id:%s  name:%s\n",
-//			sfel_xml_node_get_name(node),sfel_xml_attr_get_value(node,"id"),sfel_xml_attr_get_value(node,"name"));
 
 	return 0;
 }
@@ -271,8 +408,6 @@ static int destroy_button(sfel_node_t *node,sfpr_void_t *param, sfpr_int_t depth
 	if(status == SFEL_NODE_END){
 		return 0;
 	}
-//	sfpr_log(easygx_log,SFPR_LOG_INFO,"easygx_sfel_destroy() |  node:%s  id:%s  name:%s\n",
-//			sfel_xml_node_get_name(node),sfel_xml_attr_get_value(node,"id"),sfel_xml_attr_get_value(node,"name"));
 
 	return 0;
 }

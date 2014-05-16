@@ -21,7 +21,10 @@ typedef enum{
 	egx_frame_unknown = 0,
 	egx_frame_window,
 	egx_frame_dialog,
-	egx_frame_view
+	egx_frame_view,
+	egx_frame_messagebox,
+	egx_frame_title,
+	egx_frame_status
 }egx_frame_type_e;
 
 #define EGX_FRAME  \
@@ -91,6 +94,8 @@ struct egx_dialog_s
 {
 	EGX_FRAME;
 	egx_dialog_type_e dialog_type;
+	int modeless;//非模态对话框
+	int btn_id;//关闭对话框的按钮
 };
 
 
@@ -119,17 +124,25 @@ struct egx_view_s
 
 int egx_frame_set_title(char *frame_id,char *title);
 
+
 int egx_window_create(char *id,egx_window_type_e type,char *name,egx_uint32_t style,int x,int y,int width,int height);
 
 int egx_window_show(char *id);
 
 int egx_window_hide(char *id);
 
-int egx_window_close(char *id);
-
 int egx_window_destroy(char *id);
 
 int egx_window_set_stack(char *id);
+
+
+int egx_dialog_create(char *id,egx_dialog_type_e type,char *name,egx_uint32_t style,int x,int y,int width,int height);
+
+int egx_dialog_show(char *id);
+
+int egx_dialog_hide(char *id);
+
+int egx_dialog_destroy(char *id);
 
 
 int egx_view_create(char *view_id,egx_view_type_e type,char *name,char *parent_id);

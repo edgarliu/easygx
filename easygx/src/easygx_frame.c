@@ -16,6 +16,9 @@
 extern "C" {
 #endif
 
+/*****************************************************************************************
+ * 1. 公共部分
+*****************************************************************************************/
 int egx_frame_set_title(char *frame_id,char *title)
 {
 	egx_frame_t *frame = (egx_frame_t*)egx_widget_find(frame_id);
@@ -25,7 +28,9 @@ int egx_frame_set_title(char *frame_id,char *title)
 	return egx_frame_set_title_(frame->object,title);	
 }
 
-
+/*****************************************************************************************
+ * 2. Window
+*****************************************************************************************/
 int egx_window_create(char *id,egx_window_type_e type,char *name,egx_uint32_t style,int x,int y,int width,int height)
 {
 	egx_window_t *_window=NULL;
@@ -138,29 +143,6 @@ int egx_window_hide(char *id)
 	return 0;
 }
 
-int egx_window_close(char *id)
-{
-	easygx_t *easygx = easygx_instance_get();
-	egx_window_t *window = NULL;
-	int size;
-	int flag;
-	window = (egx_window_t*)egx_widget_find(id);
-	if(!easygx || !window){
-		return -1;
-	}
-	if(window->widget_type != egx_widget_frame || window->frame_type != egx_frame_window){
-		return -2;
-	}
-	egx_window_close_(window->object);
-	sfpr_stack_pop_pointer(easygx->showed_frame,&size,&flag);
-	sfpr_log(easygx_log,SFPR_LOG_DEBUG,"egx_window_close() | pop: %s\n",window->id);
-	if(sfpr_stack_get_count(easygx->showed_frame) > 0){
-		egx_window_t *top_window = sfpr_stack_get_top_pointer(easygx->showed_frame,&size,&flag);
-		egx_window_show_(top_window->object);
-	}
-	return 0;
-}
-
 int egx_window_destroy(char *id)
 {
 	egx_window_t *window = NULL;
@@ -188,6 +170,95 @@ int egx_window_set_stack(char *id)
 	return 0;
 }
 
+/*****************************************************************************************
+ * 3. Dialog
+*****************************************************************************************/
+int egx_dialog_create(char *id,egx_dialog_type_e type,char *name,egx_uint32_t style,int x,int y,int width,int height)
+{
+	egx_dialog_t *_dialog=NULL;
+	egx_rect_t rect;
+
+	if(!id)
+		return -1;
+	_dialog = (egx_dialog_t *)malloc(sizeof(struct egx_dialog_s));
+	if(!_dialog)
+		return -2;
+	memset(_dialog, 0x0, sizeof(struct egx_dialog_s));
+	_dialog->id = egx_string_malloc(id);
+	if(!_dialog->id){
+		free(_dialog);
+		return -3;
+	}
+	_dialog->widget_type = egx_widget_frame;
+	_dialog->frame_type = egx_frame_dialog;
+	_dialog->dialog_type = type;
+	if(name){
+		_dialog->name = egx_string_malloc(name);
+	}
+	_dialog->rect.x = x;
+	_dialog->rect.y = y;
+	_dialog->rect.width = width;
+	_dialog->rect.height = height;
+	_dialog->object = egx_dialog_create_(name,style,x,y,width,height);
+	egx_widget_get_rect((egx_widget_t*)_dialog,&rect);
+	sfpr_log(easygx_log,SFPR_LOG_INFO,"egx_dialog_create() |  id:%s fd:%x  width:%d  height:%d\n",
+		_dialog->id,_dialog->object,rect.width,rect.height);
+	egx_widget_set_struct_(_dialog->object,(egx_widget_t*)_dialog);
+	egx_widget_register((egx_widget_t*)_dialog);
+	return 0;
+}
+
+int egx_dialog_show(char *id)
+{
+	easygx_t *easygx = easygx_instance_get();
+	egx_dialog_t *dialog = NULL;
+	egx_window_t *top_window = NULL;
+	int size,flag;
+
+	dialog = (egx_dialog_t*)egx_widget_find(id);
+	if(!dialog){
+		return -1;
+	}
+	top_window = sfpr_stack_get_top_pointer(easygx->showed_frame,&size,&flag);
+	if(top_window){
+		egx_widget_disabled((egx_widget_t*)top_window);
+	}
+	return egx_dialog_show_(dialog->object);
+}
+
+int egx_dialog_hide(char *id)
+{
+	easygx_t *easygx = easygx_instance_get();
+	egx_dialog_t *dialog = NULL;
+	egx_window_t *top_window = NULL;
+	int size,flag;
+
+	dialog = (egx_dialog_t*)egx_widget_find(id);
+	if(!dialog){
+		return -1;
+	}
+	top_window = sfpr_stack_get_top_pointer(easygx->showed_frame,&size,&flag);
+	if(top_window){
+		egx_widget_enabled((egx_widget_t*)top_window);
+	}
+	return egx_dialog_hide_(dialog->object);
+}
+
+int egx_dialog_destroy(char *id)
+{
+	egx_dialog_t *dialog = NULL;
+	dialog = (egx_dialog_t*)egx_widget_find(id);
+	if(!dialog){
+		return -1;
+	}
+	egx_dialog_destroy_(dialog->object);
+	free(dialog);
+	return 0;
+}
+
+/*****************************************************************************************
+ * 4. View
+*****************************************************************************************/
 int egx_view_create(char *view_id,egx_view_type_e type,char *name,char *parent_id)
 {
 	egx_view_t *_view=NULL;

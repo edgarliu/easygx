@@ -13,6 +13,7 @@
 #include "easygx_private.h"
 
 #include "Windowsx.h"
+#include "CommCtrl.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -21,7 +22,9 @@ extern "C" {
 #define EASYGX_WINDOW_CLASS "easygx_window"
 #define EASYGX_VIEW_CLASS "easygx_view"
 
-
+/*****************************************************************************************
+ * 1. Message
+*****************************************************************************************/
 int egx_message_reg_notification_(egx_frame_t *frame,egx_control_t *control,egx_notification_e event)
 {
 	return 0;
@@ -39,6 +42,9 @@ unsigned int egx_message_reg_timer_(egx_wnd_t hwnd,unsigned int timer_id,int int
 	return SetTimer(hWnd,timer_id,interval,egx_timer_cb);
 }
 
+/*****************************************************************************************
+ * 2. 公共部分
+*****************************************************************************************/
 int egx_frame_set_title_(egx_wnd_t hwnd,char *title)
 {
 	HWND hWnd = GUIWND_TO_HWND(hwnd);
@@ -50,6 +56,9 @@ int egx_frame_set_title_(egx_wnd_t hwnd,char *title)
 }
 
 
+/*****************************************************************************************
+ * 3. 消息处理函数
+*****************************************************************************************/
 static LRESULT cb_window_syscommand(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
@@ -68,8 +77,8 @@ static LRESULT cb_window_syscommand(HWND hWnd, UINT message, WPARAM wParam, LPAR
 			return DefWindowProc(hWnd, message, wParam, lParam);
 		case SC_CLOSE:{
 			egx_window_t *window = (egx_window_t*)egx_widget_get_struct_(HWND_TO_GUIWND(hWnd));
-			egx_window_close(window->id);
-			return DefWindowProc(hWnd, message, wParam, lParam);
+			egx_window_hide(window->id);
+			return 0;//DefWindowProc(hWnd, message, wParam, lParam);
 		}
 		case SC_MOVE://注意：SC_MOVE会拦截WM_LBUTTONUP消息
 			return DefWindowProc(hWnd, message, wParam, lParam);
@@ -201,6 +210,35 @@ static LRESULT CALLBACK cb_window_message(HWND hWnd, UINT message, WPARAM wParam
 	}	
 }
 
+static LRESULT CALLBACK cb_dialog_message(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+{
+	egx_dialog_t *frame = (egx_dialog_t*)egx_widget_get_struct_(HWND_TO_GUIWND(hWnd));
+	switch (message){
+		case WM_INITDIALOG:{
+			return TRUE;
+		}
+		case WM_COMMAND:{
+			int wmId, wmEvent;
+			wmId    = LOWORD(wParam); 
+			wmEvent = HIWORD(wParam);	
+			frame->btn_id = wmId;
+			return TRUE;
+		}
+		case WM_RBUTTONUP:{
+			//右键表示隐藏当前窗口
+			egx_dialog_hide(frame->id);
+			return TRUE;
+		}
+		case WM_CLOSE:
+		case WM_DESTROY:{
+			sfpr_log(easygx_log,SFPR_LOG_INFO,(char*)"cb_dialog_message() | %s\n",frame->id);
+			egx_dialog_hide(frame->id);
+			return TRUE;
+		}
+	}
+	return FALSE;	
+}
+
 static LRESULT CALLBACK cb_view_message(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	egx_frame_t *frame = (egx_frame_t*)egx_widget_get_struct_(HWND_TO_GUIWND(hWnd));
@@ -305,6 +343,9 @@ static LRESULT CALLBACK cb_view_message(HWND hWnd, UINT message, WPARAM wParam, 
 	}
 }
 
+/*****************************************************************************************
+ * 4. 初始化部分
+*****************************************************************************************/
 int egx_frame_init_()
 {
 	WNDCLASSEX wcex;
@@ -341,10 +382,13 @@ int egx_frame_init_()
 		sfpr_log(easygx_log,SFPR_LOG_ERROR,(char*)"egx_frame_init_() | RegisterClassEx %s failed\n",EASYGX_VIEW_CLASS);
 		return -1;
 	}
-
+	InitCommonControls();
 	return 0;
 }
 
+/*****************************************************************************************
+ * 5. Window
+*****************************************************************************************/
 egx_wnd_t egx_window_create_(char *name,egx_uint32_t style,int x,int y,int width,int height)
 {
 	HWND hWnd;
@@ -369,13 +413,6 @@ int egx_window_hide_(egx_wnd_t hwnd)
 	return 0;	
 }
 
-int egx_window_close_(egx_wnd_t hwnd)
-{
-	HWND hWnd = GUIWND_TO_HWND(hwnd);
-	CloseWindow(hWnd);
-	return 0;	
-}
-
 int egx_window_destroy_(egx_wnd_t hwnd)
 {
 	HWND hWnd = GUIWND_TO_HWND(hwnd);
@@ -384,7 +421,94 @@ int egx_window_destroy_(egx_wnd_t hwnd)
 }
 
 
+/*****************************************************************************************
+ * 6. Dialog
+*****************************************************************************************/
+static LPWORD lpwAlign(LPWORD lpIn)
+{
+    ULONG ul;
+    ul = (ULONG)lpIn;
+    ul ++;
+    ul >>=1;
+    ul <<=1;
+    return (LPWORD)ul;
+}
 
+egx_wnd_t egx_dialog_create_(char *name,egx_uint32_t style,int x,int y,int width,int height)
+{
+	HWND hDialog;
+    HGLOBAL hgbl;
+    LPDLGTEMPLATE lpdt;
+    LPWORD lpw;
+    LPWSTR lpwsz;
+    int nchar;
+    UINT cxSysChar, cySysChar;
+    cxSysChar = LOWORD(GetDialogBaseUnits());
+	cySysChar = HIWORD(GetDialogBaseUnits());
+
+    hgbl = GlobalAlloc(GMEM_ZEROINIT, 1024);
+    if (!hgbl)
+        return 0;
+    lpdt = (LPDLGTEMPLATE)GlobalLock(hgbl);
+ 
+    // Define a dialog box. 
+    lpdt->style = WS_POPUP | WS_BORDER | WS_SYSMENU | DS_MODALFRAME | WS_CAPTION;
+    lpdt->cdit = 0;         // Number of controls
+    lpdt->x  = x;
+    lpdt->y  = y;
+    lpdt->cx = MulDiv(width,4,cxSysChar); 
+    lpdt->cy = MulDiv(height,8,cySysChar);
+
+    lpw = (LPWORD)(lpdt + 1);
+    *lpw++ = 0;             // No menu
+    *lpw++ = 0;             // Predefined dialog box class (by default)
+
+    lpwsz = (LPWSTR)lpw;
+    nchar = 1 + MultiByteToWideChar(CP_ACP, 0, name, -1, lpwsz, 50);
+    lpw += nchar;
+    GlobalUnlock(hgbl); 
+ 
+	/*
+	 说明: CreateDialogIndirect用来创建非模态对话框，而DialogBoxIndirect用来创建模态对话框。
+	 在windows中,一旦调用DialogBoxIndirect函数，就会阻塞当前线程,而easygx属于预创建机制,所以是不可能
+	 调用DialogBoxIndirect函数的，我们只能用CreateDialogIndirect函数来创建一个非模态对话框,然后自行实现
+	 模态效果。
+	 */
+    hDialog = CreateDialogIndirect(NULL,(LPDLGTEMPLATE)hgbl,NULL,(DLGPROC)cb_dialog_message); 
+    GlobalFree(hgbl); 
+    return HWND_TO_GUIWND(hDialog); 
+}
+
+int egx_dialog_show_(egx_wnd_t hwnd)
+{
+	HWND hWnd = GUIWND_TO_HWND(hwnd);
+/*    HWND hParentWnd = GetParent(hWnd);
+    while(hParentWnd != NULL){
+        EnableWindow(hParentWnd, FALSE);
+        hParentWnd = GetParent(hParentWnd);
+    }*/
+	ShowWindow(hWnd, SW_SHOW);
+	return 0;
+}
+
+int egx_dialog_hide_(egx_wnd_t hwnd)
+{
+	HWND hWnd = GUIWND_TO_HWND(hwnd);
+	ShowWindow(hWnd, SW_HIDE);
+	return 0;	
+}
+
+int egx_dialog_destroy_(egx_wnd_t hwnd)
+{
+	HWND hWnd = GUIWND_TO_HWND(hwnd);
+	DestroyWindow(hWnd);
+	//EndDialog(hWnd, FALSE);	
+	return 0;
+}
+
+/*****************************************************************************************
+ * 7. View
+*****************************************************************************************/
 egx_wnd_t egx_view_create_(egx_uint32_t style,int x,int y,int width,int height,egx_wnd_t parent)
 {/*
 	hWnd = CreateWindowEx(0L,"SCROLLBAR",NULL,WS_CHILD|WS_VISIBLE|SBS_HORZ,//|SBS_VERT,

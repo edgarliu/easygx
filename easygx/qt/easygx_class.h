@@ -49,11 +49,32 @@ class CEgxWindow: public QFrame //QMainWindow
 	void on_button_event(bool checked);
 };
 
+class CEgxDialog: public QDialog
+{
+    Q_OBJECT
+    public:
+	CEgxDialog():QDialog(0){};
+	~CEgxDialog(){};
+	protected:
+    void closeEvent(QCloseEvent * event);
+	void paintEvent(QPaintEvent * event);
+    void timerEvent(QTimerEvent *event);
+	void keyPressEvent(QKeyEvent *event);
+	void keyReleaseEvent(QKeyEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+	void	mouseDoubleClickEvent(QMouseEvent * event); 
+    void	wheelEvent(QWheelEvent * event);
+//	signals:
+	public slots:
+	void on_button_event(bool checked);	
+};
+
 class CEgxView: public QFrame //QMainWindow
 {
     Q_OBJECT
     public:
-	CEgxView(CEgxWindow *window =0):QFrame(window){};
+	CEgxView(CEgxWindow *parent =0):QFrame(parent){};
 	protected:
 	void paintEvent(QPaintEvent * event);
     void timerEvent(QTimerEvent *event);

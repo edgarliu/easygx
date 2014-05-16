@@ -45,6 +45,11 @@ int egx_radiobutton_cb(egx_widget_t *widget,egx_uint32_t msg_id,egx_uint32_t par
 	return 0;
 }
 
+int egx_window_timer1_cb(egx_widget_t *widget,egx_uint32_t msg_id,egx_uint32_t param1,egx_uint32_t param2,void *userdata)
+{
+	printf("egx_window_timer_cb %s\n",widget->id);	
+}
+
 int main(int argc, char* argv[])
 {
 	easygx_init_conf_t init_conf;
@@ -58,8 +63,63 @@ int main(int argc, char* argv[])
 	easygx_init(&init_conf);
 
 	egx_window_create("window_test1",egx_window_type_general,"test1111",0,0,0,640,480);
+
+	egx_tree_create("tree_test11",0,"Tree Test",0,20,10,300,400,"window_test1");
+	egx_tree_insert_item("tree_test11",0,"Tesss");
+	egx_tree_insert_item("tree_test11",1,"Edgarliu");
+	egx_tree_insert_item("tree_test11",2,"Iss");
+
+// Table
+/*
+	egx_table_create("table_test11",0,"",0,20,10,300,400,"window_test1");
+	egx_table_init_column("table_test11",0,60,"First");
+	egx_table_init_column("table_test11",1,80,"Second");
+	egx_table_init_column("table_test11",2,80,"Thirst");
+	egx_table_init_item("table_test11",10);
+	
+	{
+		char *text[4];
+		text[0] = "defe";
+		text[1] = "qwsa";
+		text[2] = "xxxx";
+		egx_table_set_item("tree_test11",3,text);
+	}
+	{
+		char buffer[256];
+		memset(buffer,0,sizeof(buffer));
+		strcpy(buffer,"aaaa$bbbb$cccc");
+		egx_table_set_line("tree_test11",4,buffer,"$");
+	}
+	egx_table_set_item_data("tree_test11",0,0,"00.00");
+	egx_table_set_item_data("tree_test11",6,2,"00.11");
+	egx_table_set_item_data("tree_test11",9,2,"11.00");
+*/
+
+//ListBox & ComboBox
+/*
+	egx_listbox_create("listbox_test11",0,"test listbox",0,50,80,100,60,"window_test1");
+	egx_listbox_add_item("listbox_test11","aaaaaaa",NULL);
+	egx_listbox_add_item("listbox_test11","bbbbbbb",NULL);
+	egx_listbox_add_item("listbox_test11","xxxxxx",NULL);
+	egx_listbox_add_item("listbox_test11","sssssss",NULL);
+
+	egx_combobox_create("combobox_test11",0,"test combobox",0,200,80,100,90,"window_test1");
+	egx_combobox_add_item("combobox_test11","aaaaaaa",NULL);
+	egx_combobox_add_item("combobox_test11","bbbbbbb",NULL);
+	egx_combobox_add_item("combobox_test11","xxxxxx",NULL);
+	egx_combobox_add_item("combobox_test11","sssssss",NULL);
+	egx_combobox_set_selected_item("combobox_test11",0);
+*/
+
+/*
+	egx_message_reg_timer("window_test1",6,4000,egx_window_timer1_cb,NULL);	
 	egx_pushbutton_create("pushbutton_test11",0,"test button",0,50,80,100,60,"window_test1");
-	egx_message_pushbutton_jump("pushbutton_test11","window_test2",NULL);
+	egx_message_pushbutton_jump("pushbutton_test11","dialog_test1",NULL);
+	egx_pushbutton_create("pushbutton_test12",0,"test button",0,50,200,100,60,"window_test1");
+	egx_message_pushbutton_jump("pushbutton_test12","window_test2",NULL);
+
+	egx_dialog_create("dialog_test1",egx_dialog_type_general,"test2222",0,0,0,320,240);
+	egx_pushbutton_create("pushbutton_test211",0,"View 2",0,50,20,100,30,"dialog_test1");
 
 	egx_window_create("window_test2",egx_window_type_general,"test2222",0,0,0,640,480);
 //	egx_window_set_stack("window_test2");
@@ -97,7 +157,7 @@ int main(int argc, char* argv[])
 	egx_edit_create("edit_test23",0,"View aaaaa",0,60,160,200,30,"view_test23");
 	egx_pushbutton_create("pushbutton_test23",301,"Trans Data",0,60,200,100,30,"view_test23");
 	egx_message_pushbutton_trans("pushbutton_test23","edit_test23","label_test23",NULL);
-
+*/
 
 	egx_window_show("window_test1");
 

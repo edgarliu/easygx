@@ -180,12 +180,18 @@ static int egx_button_jump_cb(egx_widget_t *widget,egx_uint32_t msg_id,egx_uint3
 	if(!frame){
 		return -2;
 	}
+	if(frame->widget_type != egx_widget_frame){
+		return -3;
+	}
 	sfpr_log(easygx_log,SFPR_LOG_INFO,(char*)"egx_button_jump() |  pushbutton:%s ---> show:%s\n",
 			widget->id,frame->id);
-	if(frame->widget_type == egx_widget_frame && frame->frame_type == egx_frame_window){
+	if(frame->frame_type == egx_frame_window){
 		egx_window_show(frame->id);
 	}
-	if(frame->widget_type == egx_widget_frame && frame->frame_type == egx_frame_view){
+	else if(frame->frame_type == egx_frame_dialog){
+		egx_dialog_show(frame->id);
+	}
+	else if(frame->frame_type == egx_frame_view){
 		egx_view_show(frame->id);
 	}
 	return 0;
